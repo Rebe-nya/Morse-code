@@ -1,14 +1,21 @@
-let text = "Čau";
-//let textBezDiakritiky = noDiakr(text);   // "CAU"
-//let morseuvText = morseEncode(textBezDiakritiky);   // "-.-./.-/-.--"
-
-
+let text = document.getElementById("inputTextArea").value;
 
 function morseEncode(noDiakrText){
     const morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
     let morseText = "";
     for (let i = 0; i < noDiakrText.length; i++){
-        morseText += morse[noDiakrText.charCodeAt(i) - 65];
+        if (noDiakrText.charCodeAt(i) === 32){
+            morseText += "/ ";
+        }
+        else if (noDiakrText.charCodeAt(i) === 46){
+            morseText += ".-.-.-";
+        }
+        else {
+            morseText += morse[noDiakrText.charCodeAt(i) - 65];
+            if (i < noDiakrText.length - 1) {
+                morseText += " ";
+            }
+        }
     }
     return morseText;
 
