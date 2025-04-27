@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    margin-inline: 1vh;
+    color: white;
+    background-color: rgb(31, 31, 31);
+}
+h1 {
+    text-align: center;
+}
