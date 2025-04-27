@@ -6,4 +6,8 @@ body {
 }
 h1 {
     text-align: center;
+    font-size: 5vh;
+}
+main {
+    font-size: 2.5vh;
 }
