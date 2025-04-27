@@ -1,4 +1,6 @@
-let text = document.getElementById("inputTextArea").value;
+const text = document.getElementById("inputTextArea");
+const button = document.getElementById("encodeButton");
+const outputText = document.getElementById("outputText");
 
 function morseEncode(noDiakrText){
     const morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
@@ -23,7 +25,7 @@ function morseEncode(noDiakrText){
 function noDiakr(){
     const diakrZnaky = "ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ";
     const bezDiakrZnaky = "ACDEEINORSTUUYZ";
-    let upperText = text.toUpperCase();
+    let upperText = text.value.toUpperCase();
     let result = "";
     let output = "";
     
@@ -40,5 +42,6 @@ function noDiakr(){
     return output;
 }
 
-console.log("noDiakr: " + noDiakr());
-console.log("morseEncode: " + morseEncode(noDiakr()));
+button.addEventListener("click", function() {
+    outputText.innerText = morseEncode(noDiakr())
+})
